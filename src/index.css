@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Sora', sans-serif;
+  background-color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.badge {
+  background: linear-gradient(90deg, #7565D9, #4D0ACD);
+  color: white;
+  border: none;
+  padding: 9px 9px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  gap: 7px;
+  align-items: center;
+  display: inline-flex; /* Ensure proper alignment */
+  margin-bottom: 16px;
+}
+
+.icon {
+  width: 14.66px;
+  height: 14.66px;
+}
+
+.loader-container p {
+  font-size: 33px;
+  font-weight: 600;
+  color: #000000;
+  margin-top: 16px;
+}
+
+.loader {
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.spinner-border {
+  color: #500ECE; /* Set the spinner color */
+  width: 40px; /* Optional: Adjust the size */
+  height: 40px; /* Optional: Adjust the size */
+  border-width: 0.25rem; /* Optional: Adjust the border thickness */
+}
+
+main h1 {
+  font-size: 32px;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: 400;
+  font-family: 'Sora', sans-serif;
+}
+
+.register-main h1 {
+  font-family: 'Sora', sans-serif; /* Same font for consistency */
+  font-size: 40px; /* Same font size as the h1 */
+  font-weight: 400; /* Bold weight for emphasis */
+  color: #000000; /* Distinct color for the span */
+}
+
+.register-main h1 span {
+  font-family: 'Sora', sans-serif; /* Same font for consistency */
+  font-size: 40px; /* Same font size as the h1 */
+  font-weight: 600; /* Bold weight for emphasis */
+  color: #000000; /* Distinct color for the span */
+}
+
+.register-main p {
+  width: 762px; /* Width of the paragraph */
+  height: auto; /* Adjust height dynamically */
+  margin: 0 auto; /* Center horizontally */
+  font-family: 'Sora', sans-serif;
+  font-size: 19px; /* Font size */
+  font-weight: 400; /* Regular weight */
+  line-height: 25px; /* Line spacing */
+  text-align: center; /* Center text */
+  margin-bottom: 34px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 507px;
+  height: 95px;
+  margin: 0 auto;
+  justify-content: start; 
+  align-items: start; 
+}
+
+.input-container label {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Sora', sans-serif;
+  line-height: 22.68px;
+  color: #000000;
+}
+
+.input-container input {
+  width: 507px;
+  height: 60px;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 15px;
+  font-size: 16px;
+  background-color: #F2F2F2;
+  font-family: 'Sora', sans-serif;
+}
+
+.highlight {
+  color: #000000;
+  font-weight: 600;
+}
+
+.role-cards {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  margin-bottom: 32px;
+}
+
+.role-card {
+  background: white;
+  border: 1px solid #D9D9D9;
+  border-radius: 10px;
+  padding: 15px 17px 15px 25px;
+  width: 387px;
+  height: 143px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+
+.role-card:hover {
+  border-color: #7765DA;
+}
+
+.role-card.selected {
+  border: 3px solid #7765DA;
+}
+
+.role-card h2 {
+  color: #333;
+  margin-bottom: 8px;
+  font-size: 23px;
+  font-weight: 600;
+  text-align: start;
+}
+
+.role-card p {
+  color: #454545;
+  font-size: 16px;
+  text-align: start;
+}
+
+.continue-button {
+  height: 58px;
+  width: 234px;
+  background: linear-gradient(90deg, #8F64E1, #1D68BD);
+  color: white;
+  border: none;
+  padding: 17px 70px;
+  border-radius: 34px;
+  font-size: 18px;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+}
+
+.continue-button-rg {
+  height: 58px;
+  width: 234px;
+  background: linear-gradient(90deg, #8F64E1, #1D68BD);
+  color: white;
+  border: none;
+  padding: 17px 70px;
+  border-radius: 34px;
+  margin-top: 58px;
+  font-size: 18px;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+}
+
+.continue-button:hover {
+  background-color: #5848a5;
+}
+
+/* Question Component Styles */
+.options {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers options vertically */
+  align-items: center; /* Centers options horizontally */
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+  gap: 11px;
+}
+
+.option-number {
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Vertically center the text */
+  justify-content: center; /* Horizontally center the text */
+  width: 22px; /* Set the width of the circle */
+  height: 22px; /* Set the height of the circle */
+  border-radius: 50%; /* Make the element circular */
+  background-color: #8D8D8D; /* Background color of the circle */
+  border: 1px solid #8D8D8D; /* Border color of the circle */
+}
+
+.option-number.selected {
+  background-color: #8F64E1; /* Change background color when selected */
+  color: #ffffff; /* Change text color when selected */
+  border-color: #8F64E1; /* Change border color when selected */
+}
+
+/* Ensure the parent container has proper dimensions */
+.question-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 727px;
+  height: 353px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  gap: 28px;
+}
+
+.question-header {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.question-title {
+  background: linear-gradient(90deg, #343434, #6E6E6E); /* Linear gradient */
+  border-radius: 10px 10px 0px 0px;
+  padding-left: 16px;
+  display: flex; 
+  align-items: center;
+  width: 727px;
+  height: 50px;
+}
+
+.question-title h2 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 21.42px;
+  justify-self: start;
+  font-family: 'Sora', sans-serif;
+  color: #ffffff;
+}
+
+.question-header span {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 27.72px;
+  color: #000000;
+}
+
+.question-header h2 {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 21.42px;
+  color: #333333;
+}
+
+.timer {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff4d4d;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Adjust the gap as needed */
+}
+
+.timer img {
+  width: 14px; /* Adjust the width as needed */
+  height: 14px; /* Adjust the height as needed */
+  vertical-align: middle; /* Ensure the icon is vertically aligned with the text */
+}
+
+/* .options {
+  display: flex;
+  flex-direction: column;
+  width: 678px;
+  height: 253px;
+  justify-self: center;
+  align-items: center;
+  gap: 11px;
+} */
+
+.option-button {
+  width: 678px;
+  height: 55px;
+  border-radius: 6px;
+  border-width: 1px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 26px 23px 26px 23px;
+  background-color: #F6F6F6;
+  border-color: rgba(141, 141, 141, 0.19); /* Border color with 19% opacity */
+  cursor: pointer;
+  text-align: left;
+}
+
+.option-button.selected {
+  border-color: #8F64E1; /* Change border color when selected */
+  border-width: 1.5px; /* Change border thickness when selected */
+  background-color: #ffffff; /* Keep the background color the same */
+  font-weight: 600;
+}
+
+.submit-button-container {
+  display: flex;
+  margin-top: 20px;
+  justify-content: flex-end; /* Align items to the right */
+  width: 100%; /* Ensure it takes full width of the container */
+}
+
+/* Submit button styles */
+.submit-button {
+  width: 233.93px;
+  height: 57.58px;
+  padding: 17px 70px;
+  background: linear-gradient(90deg, #8f64e1, #1d68bd);
+  color: white;
+  font-size: 18px;
+  line-height: 22.68px;
+  font-weight: 600;
+  border: none;
+  border-radius: 34px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .role-cards {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center the cards horizontally */
+    gap: 20px;
+  }
+
+  .container {
+    align-items: center;
+  }
+
+  .role-card {
+    width: 100%; /* Full width of the container */
+    max-width: 300px; /* Set a maximum width for better control */
+    height: auto; /* Adjust height to content */
+  }
+
+  .continue-button {
+    width: 100%;
+    max-width: 300px; /* Adjust button width for smaller screens */
+  }
+
+  main h1 {
+    font-size: 28px; /* Slightly smaller heading for better fit */
+  }
+
+  .register-main h1 {
+    font-size: 32px; 
+  }
+
+  .register-main p {
+    font-size: 16px; 
+    line-height: 1.5;
+  }
+
+  .input-container {
+    width: 100%; /* Full width for smaller screens */
+    max-width: 400px; /* Limit width for better readability */
+  }
+
+  .input-container input {
+    width: 100%; /* Full width for smaller screens */
+  }
+
+  .input-container label {
+    font-size: 14px; /* Smaller text for readability */
+  }
+
+  main p {
+    font-size: 14px; /* Smaller text for readability */
+    line-height: 1.5;
+  }
+
+  .question-wrapper {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .question-container {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .question-title {
+    width: 100%;
+  }
+
+  .question-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .question-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .options {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .option-button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 1rem;
+  }
+
+  .timer {
+    font-size: 0.9rem;
+  }
+
+  .question-container {
+    padding: 16px;
+    
+  }
+
+  .question-header h2 {
+    font-size: 18px;
+  }
+
+  .timer {
+    font-size: 12px;
+  }
+
+  .option-button {
+    font-size: 14px;
+  }
+
+  .submit-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .submit-button-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .badge {
+    font-size: 12px;
+    padding: 7px;
+  }
+
+  .container {
+    align-items: center;
+  }
+
+  main h1 {
+    font-size: 24px;
+  }
+
+  main p {
+    font-size: 13px;
+  }
+
+  .register-main h1 {
+    font-size: 28px;
+  }
+
+  .register-main p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .input-container {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .input-container input {
+    width: 100%;
+  }
+
+  .input-container label {
+    font-size: 12px;
+  }
+
+  .role-cards {
+    gap: 15px; /* Reduce gap for smaller screens */
+  }
+
+  .role-card {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .continue-button {
+    font-size: 16px;
+    height: 50px;
+  }
+
+  .question-container {
+    padding: 12px;
+  }
+
+  .question-header h2 {
+    font-size: 14px;
+  }
+
+  .timer {
+    font-size: 12px;
+  }
+
+  .option-button {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+
+  .submit-button {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+}
