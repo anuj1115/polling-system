@@ -238,11 +238,11 @@ main h1 {
   justify-content: center;
   align-items: center;
   width: 727px;
-  height: 353px;
+  height: 410px;
   background: #ffffff;
   border-radius: 10px;
   border: 1px solid #e0e0e0;
-  gap: 28px;
+  /* gap: 28px; */
 }
 
 .question-header {
@@ -352,6 +352,56 @@ main h1 {
   border: none;
   border-radius: 34px;
   cursor: pointer;
+}
+
+.option-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  position: relative;
+  overflow: hidden;
+  color: #000;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.option-button.selected {
+  border-color: #2196f3;
+}
+
+.option-button .option-text {
+  z-index: 1;
+}
+
+.option-button .percentage-text {
+  z-index: 1;
+  font-size: 14px;
+  font-weight: bold;
+  color: #170101;
+}
+
+.option-button:hover {
+  background-color: #f0f8ff;
+}
+
+.submit-button,
+.next-button {
+  padding: 10px 20px;
+  background-color: #8f64e1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-button:hover,
+.next-button:hover {
+  background-color: #1976d2;
 }
 
 /* Responsive Design */

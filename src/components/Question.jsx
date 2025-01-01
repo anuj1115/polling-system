@@ -7,6 +7,12 @@ const Question = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60); // Timer starts at 60 seconds
+  const [showPercentage, setShowPercentage] = useState(false);
+
+  // Mock data: Percentage of students who selected each option
+  const mockPercentages = questions.map((q) =>
+    q.options.map(() => Math.floor(Math.random() * 100)) // Random percentages for each option
+  );
 
   // Access the current question based on the current index
   const questionData = questions[currentQuestionIndex];
@@ -31,7 +37,12 @@ const Question = () => {
     // Reset timer and move to the next question
     setTimeLeft(60); // Reset timer to 60 seconds
     setSelectedOption(null); // Reset selected option
+    setShowPercentage(false); // Hide percentages for the next question
     setCurrentQuestionIndex((prevIndex) => (prevIndex + 1) % questions.length);
+  };
+
+  const handleSubmit = () => {
+    setShowPercentage(true); // Show the percentage of students who selected each answer
   };
 
   return (
@@ -42,8 +53,9 @@ const Question = () => {
         </span>
         <div className="timer">
           <span role="img" aria-label="timer">
-            <img src={timer} alt="timer icon"/>
-          </span> {`00:${timeLeft < 10 ? `0${timeLeft}` : timeLeft}`}
+            <img src={timer} alt="timer icon" />
+          </span>{" "}
+          {`00:${timeLeft < 10 ? `0${timeLeft}` : timeLeft}`}
         </div>
       </div>
       <div className="question-container">
@@ -58,17 +70,36 @@ const Question = () => {
                 selectedOption === option ? "selected" : ""
               }`}
               onClick={() => handleOptionClick(option)}
+              disabled={showPercentage} // Disable options if percentages are shown
+              style={{
+                background: showPercentage
+                  ? `linear-gradient(to right, #7765DA ${
+                      mockPercentages[currentQuestionIndex][index]
+                    }%, #e0e0e0 0%)`
+                  : "#ffffff",
+              }}
+              
             >
-              <span className={`option-number ${selectedOption === option ? "selected" : ""}`}>{index + 1}</span>
-              {option}
+              <span className="option-text">{option}</span>
+              {showPercentage && (
+                <span className="percentage-text">
+                  {mockPercentages[currentQuestionIndex][index]}%
+                </span>
+              )}
             </button>
           ))}
         </div>
       </div>
       <div className="submit-button-container">
-        <button className="submit-button" onClick={handleNextQuestion}>
-          Submit
-        </button>
+        {showPercentage ? (
+          <button className="next-button" onClick={handleNextQuestion}>
+            Next
+          </button>
+        ) : (
+          <button className="submit-button" onClick={handleSubmit}>
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );
