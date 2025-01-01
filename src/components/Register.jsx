@@ -3,11 +3,13 @@ import star from '../assets/Vector.png';
 import Question from './Question';
 import { useNavigate } from 'react-router-dom';
 import questions from '../data/Questions'; // Import the static questions data
+import ChatBox from '../components/Chatbot'; // Import the ChatBox component
 
 function Register() {
   const [showLoader, setShowLoader] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [questionsState, setQuestionsState] = useState([]);
+  const [userName, setUserName] = useState(''); // State to capture user name
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,7 +72,13 @@ function Register() {
 
             <div className="input-container">
               <label htmlFor="name">Enter your Name</label>
-              <input type="text" id="name" placeholder="Rahul Bajaj" />
+              <input
+                type="text"
+                id="name"
+                placeholder="Rahul Bajaj"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
             </div>
 
             <button className="continue-button-rg" onClick={handleLoader}>
@@ -79,6 +87,8 @@ function Register() {
           </main>
         </>
       )}
+      {/* Render ChatBox component */}
+      <ChatBox userName={userName} />
     </div>
   );
 }
