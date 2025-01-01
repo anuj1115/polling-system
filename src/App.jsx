@@ -12,8 +12,10 @@ const App = () => {
   };
 
   const handleContinue = () => {
-    if (selectedRole === "student") {
-      navigate("/register", { state: { role: "student" } }); // Pass role as state
+    if (selectedRole === "teacher") {
+      navigate("/teacher");
+    } else if (selectedRole === "student") {
+      navigate("/student");
     } else {
       alert("Please select a role to continue.");
     }
@@ -43,10 +45,7 @@ const App = () => {
             onClick={() => handleSelection("student")}
           >
             <h2>I’m a Student</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry
-            </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
           </div>
           <div
             className={`role-card ${
