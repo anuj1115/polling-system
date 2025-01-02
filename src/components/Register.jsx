@@ -55,6 +55,7 @@ function Register() {
         </div>
       ) : (
         <>
+        <div className='register-main'>
           <button className="badge">
             <img src={star} alt="star" className="icon" />
             Intervue Poll
@@ -85,6 +86,7 @@ function Register() {
               Continue
             </button>
           </main>
+        </div>
         </>
       )}
       {/* Render ChatBox component */}

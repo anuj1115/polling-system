@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import '../index.css';
+import { useNavigate } from 'react-router-dom';
 import messagingIcon from '../assets/Frame 427320143.png'; // Import the messaging icon
+
 
 function ChatComponent() {
   const [selectedTab, setSelectedTab] = useState('chat');
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([
     { sender: 'User 1', text: 'Hey There, how can I help?', self: false },
     { sender: 'User 2', text: 'Nothing bro..just chill!!!', self: true },
   ]);
   const [newMessage, setNewMessage] = useState('');
   const [isChatVisible, setIsChatVisible] = useState(false); // State to control visibility
-  const participants = ['User 1', 'User 2'];
+  const [participants, setParticipants] = useState(['User 1', 'User 2']);
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
@@ -21,6 +24,11 @@ function ChatComponent() {
 
   const toggleChatVisibility = () => {
     setIsChatVisible(!isChatVisible);
+  };
+
+  const handleKickOut = (participant) => {
+    setParticipants(participants.filter(p => p !== participant));
+    navigate('/polling/end')
   };
 
   return (
@@ -66,7 +74,15 @@ function ChatComponent() {
                 <div className="participants">
                   <ul>
                     {participants.map((participant, index) => (
-                      <li key={index}>{participant}</li>
+                      <li key={index}>
+                        {participant}
+                        <button
+                          className="kick-out-button"
+                          onClick={() => handleKickOut(participant)}
+                        >
+                          Kick Out
+                        </button>
+                      </li>
                     ))}
                   </ul>
                 </div>
