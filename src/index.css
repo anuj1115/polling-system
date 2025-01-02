@@ -248,9 +248,11 @@ main h1 {
   align-items: center;
   width: 727px;
   height: 410px;
+  height: 410px;
   background: #ffffff;
   border-radius: 10px;
   border: 1px solid #e0e0e0;
+  /* gap: 28px; */
   /* gap: 28px; */
 }
 
