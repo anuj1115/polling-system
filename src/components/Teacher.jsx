@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
-import { Clock } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Clock } from 'lucide-react'; 
+import { useNavigate } from 'react-router-dom';
 import '../index.css';
+import Question from './Question';
 
-const TeacherPollComponent = () => {
+const Teacher = () => {
   const [question, setQuestion] = useState('');
   const [options, setOptions] = useState([
     { id: 1, text: '', isCorrect: true },
     { id: 2, text: '', isCorrect: false }
   ]);
   const [timeLimit, setTimeLimit] = useState('60');
+  const navigate = useNavigate();
+  const [timeLeft, setTimeLeft] = useState(60); // Default timer starts at 60 seconds
+  const [selectedTime, setSelectedTime] = useState(60);
+
+  useEffect(() => {
+    if (timeLeft > 0) {
+      const timer = setInterval(() => {
+        setTimeLeft((prevTime) => prevTime - 1);
+      }, 1000);
+      return () => clearInterval(timer); // Cleanup on unmount or timeLeft update
+    }
+  }, [timeLeft]);
 
   const handleAddOption = () => {
     if (options.length < 6) {
@@ -30,6 +44,10 @@ const TeacherPollComponent = () => {
     setOptions(options.map(option => 
       ({ ...option, isCorrect: option.id === id && isCorrect })
     ));
+  };
+
+  const handleSubmit = () => {
+    navigate('/teacher/question', { state: { question, options, timeLimit: selectedTime } }); // Navigate to the new URL with state
   };
 
   return (
@@ -121,13 +139,11 @@ const TeacherPollComponent = () => {
         </div>
 
         <div className="footer">
-          <button className="submitButton">
-            Ask Question
-          </button>
+          <button className="submitButton" onClick={handleSubmit}>Ask Question</button>
         </div>
       </div>
     </div>
   );
 };
 
-export default TeacherPollComponent;
+export default Teacher;

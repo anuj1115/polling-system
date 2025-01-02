@@ -2,36 +2,38 @@ import React, { useState, useEffect } from 'react';
 import star from '../assets/Vector.png';
 import Question from './Question';
 import { useNavigate } from 'react-router-dom';
-import questions from '../data/Questions'; // Import the static questions data
-import ChatBox from '../components/Chatbot'; // Import the ChatBox component
+import questions from '../data/Questions';
+import ChatBox from '../components/Chatbot';
 
 function Register() {
   const [showLoader, setShowLoader] = useState(false);
   const [showContent, setShowContent] = useState(false);
   const [questionsState, setQuestionsState] = useState([]);
-  const [userName, setUserName] = useState(''); // State to capture user name
+  const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Load questions into state
     setQuestionsState(questions);
   }, []);
-
-  const handleContinue = () => {
-    if (questionsState.length > 0) {
-      const randomQuestion = questionsState[Math.floor(Math.random() * questionsState.length)];
-      navigate(`/question/${randomQuestion.id}`);
-    } else {
-      alert("No questions available.");
-    }
-  };
 
   const handleLoader = () => {
     setShowLoader(true);
     setTimeout(() => {
       setShowLoader(false);
       setShowContent(true);
-    }, 2000); // Show loader for 2 seconds
+    }, 2000); // Set loader for 2 seconds
+  };
+
+  const handleContinue = () => {
+    if (userName.trim() === '') {
+      alert('Please enter your name to continue.');
+      return;
+    }
+
+    if (questionsState.length > 0) {
+      const randomQuestion = questionsState[Math.floor(Math.random() * questionsState.length)];
+      navigate(`/question/${randomQuestion.id}`, { state: { userName } });
+    }
   };
 
   return (
@@ -46,7 +48,7 @@ function Register() {
             <div className="spinner-border" role="status">
               <span className="sr-only">Loading...</span>
             </div>
-            <p className="instruction">Wait for the teacher to ask questions..</p>
+            <p className="instruction">Wait for the teacher to ask questions...</p>
           </div>
         </div>
       ) : showContent ? (
@@ -54,8 +56,7 @@ function Register() {
           <Question />
         </div>
       ) : (
-        <>
-        <div className='register-main'>
+        <div className="register-main">
           <button className="badge">
             <img src={star} alt="star" className="icon" />
             Intervue Poll
@@ -76,7 +77,7 @@ function Register() {
               <input
                 type="text"
                 id="name"
-                placeholder="Rahul Bajaj"
+                placeholder="Enter your name"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
               />
@@ -87,9 +88,7 @@ function Register() {
             </button>
           </main>
         </div>
-        </>
       )}
-      {/* Render ChatBox component */}
       <ChatBox userName={userName} />
     </div>
   );
