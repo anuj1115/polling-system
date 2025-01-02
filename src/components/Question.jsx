@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../index.css"; // Ensure you include the CSS
-import questions from "../data/Questions"; // Import static questions data
-import timer from "../assets/timer-icon.png"; // Import the timer icon
+import "../index.css";
+import questions from "../data/Questions";
+import timer from "../assets/timer-icon.png";
 import { useLocation , useNavigate} from "react-router-dom";
 import { Eye } from "lucide-react";
 
@@ -9,46 +9,43 @@ const Question = (isPollHistory) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const navigate = useNavigate();
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(60); // Timer starts at 60 seconds
+  const [timeLeft, setTimeLeft] = useState(60);
   const [showPercentage, setShowPercentage] = useState(false);
   const location = useLocation();
   const { state } = location;
   const { question, options, timeLimit, isNewQuestion } = state || {};
 
   const handleAskNewQuestion = () => {
-    navigate('/teacher'); // Redirect back to the Teacher component
+    navigate('/teacher');
   };
 
-  // Access the current question based on the current index
   const questionData = questions[currentQuestionIndex];
 
   const isStudentQuestionRoute = location.pathname.startsWith('/question');
 
-  // Mock data: Percentage of students who selected each option
   const mockPercentages = questions.map(
-    (q) => q.options.map(() => Math.floor(Math.random() * 100)) // Random percentages for each option
+    (q) => q.options.map(() => Math.floor(Math.random() * 100))
   );
 
-  // Timer countdown logic
   useEffect(() => {
     if (timeLeft > 0 && !showPercentage) {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
-      return () => clearInterval(timer); // Cleanup on unmount or timeLeft update
+      return () => clearInterval(timer);
     }
   }, [timeLeft, showPercentage]);
 
   const handleOptionClick = (option) => {
-    setSelectedOption(option); // Set the selected option
+    setSelectedOption(option);
   };
 
   const handleSubmit = () => {
-    setShowPercentage(true); // Show the percentage of students who selected each answer
+    setShowPercentage(true);
   };
 
   const handleViewPollHistory = () => {
-    navigate('/teacher/pollhistory'); // Redirect to the PollHistory component
+    navigate('/teacher/pollhistory');
   };
 
   return (
@@ -85,7 +82,7 @@ const Question = (isPollHistory) => {
                   selectedOption === option ? "selected" : ""
                 }`}
                 onClick={() => handleOptionClick(option)}
-                disabled={showPercentage} // Disable options if percentages are shown
+                disabled={showPercentage}
                 style={{
                   background: showPercentage
                     ? selectedOption === option

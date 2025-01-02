@@ -13,17 +13,15 @@ const Teacher = () => {
   ]);
   const [timeLimit, setTimeLimit] = useState('60');
   const navigate = useNavigate();
-  const [timeLeft, setTimeLeft] = useState(60); // Default timer starts at 60 seconds
+  const [timeLeft, setTimeLeft] = useState(60);
   const [selectedTime, setSelectedTime] = useState(60);
-
-
 
   useEffect(() => {
     if (timeLeft > 0) {
       const timer = setInterval(() => {
         setTimeLeft((prevTime) => prevTime - 1);
       }, 1000);
-      return () => clearInterval(timer); // Cleanup on unmount or timeLeft update
+      return () => clearInterval(timer);
     }
   }, [timeLeft]);
 
@@ -50,7 +48,7 @@ const Teacher = () => {
   };
 
   const handleSubmit = () => {
-    navigate('/teacher/question', { state: { question, options, timeLimit: selectedTime , isNewQuestion: true } }); // Navigate to the new URL with state
+    navigate('/teacher/question', { state: { question, options, timeLimit: selectedTime , isNewQuestion: true } });
   };
 
   return (

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import '../index.css';
 import { useNavigate } from 'react-router-dom';
-import messagingIcon from '../assets/Frame 427320143.png'; // Import the messaging icon
-
+import messagingIcon from '../assets/Frame 427320143.png';
 
 function ChatComponent() {
   const [selectedTab, setSelectedTab] = useState('chat');
@@ -12,7 +11,7 @@ function ChatComponent() {
     { sender: 'User 2', text: 'Nothing bro..just chill!!!', self: true },
   ]);
   const [newMessage, setNewMessage] = useState('');
-  const [isChatVisible, setIsChatVisible] = useState(false); // State to control visibility
+  const [isChatVisible, setIsChatVisible] = useState(false);
   const [participants, setParticipants] = useState(['User 1', 'User 2']);
 
   const handleSendMessage = () => {

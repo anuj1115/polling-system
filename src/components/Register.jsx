@@ -10,7 +10,6 @@ function Register() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Preloading questions if needed
   }, []);
 
   const handleLoader = () => {
@@ -26,7 +25,7 @@ function Register() {
 
       navigate(`/question`, { state: { userName } });
       
-    }, 2000); // Loader timeout
+    }, 2000);
   };
 
   return (

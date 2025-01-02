@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: auto;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   text-align: center;
   padding: 16px;
   box-sizing: border-box;
@@ -30,7 +30,7 @@ body {
   cursor: pointer;
   gap: 7px;
   align-items: center;
-  display: inline-flex; /* Ensure proper alignment */
+  display: inline-flex;
   margin-bottom: 16px;
 }
 
@@ -53,10 +53,10 @@ body {
 }
 
 .spinner-border {
-  color: #500ECE; /* Set the spinner color */
-  width: 40px; /* Optional: Adjust the size */
-  height: 40px; /* Optional: Adjust the size */
-  border-width: 0.25rem; /* Optional: Adjust the border thickness */
+  color: #500ECE;
+  width: 40px; 
+  height: 40px; 
+  border-width: 0.25rem;
 }
 
 main h1 {
@@ -68,10 +68,10 @@ main h1 {
 }
 
 .register-main h1 {
-  font-family: 'Sora', sans-serif; /* Same font for consistency */
-  font-size: 40px; /* Same font size as the h1 */
-  font-weight: 400; /* Bold weight for emphasis */
-  color: #000000; /* Distinct color for the span */
+  font-family: 'Sora', sans-serif;
+  font-size: 40px; 
+  font-weight: 400;
+  color: #000000;
 }
 
 .teacher-message {
@@ -84,23 +84,24 @@ main h1 {
 }
 
 .register-main h1 span {
-  font-family: 'Sora', sans-serif; /* Same font for consistency */
-  font-size: 40px; /* Same font size as the h1 */
-  font-weight: 600; /* Bold weight for emphasis */
-  color: #000000; /* Distinct color for the span */
+  font-family: 'Sora', sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  color: #000000; 
 }
 
 .register-main p {
-  width: 762px; /* Width of the paragraph */
-  height: auto; /* Adjust height dynamically */
-  margin: 0 auto; /* Center horizontally */
+  width: 762px;
+  height: auto;
+  margin: 0 auto;
   font-family: 'Sora', sans-serif;
-  font-size: 19px; /* Font size */
-  font-weight: 400; /* Regular weight */
-  line-height: 25px; /* Line spacing */
-  text-align: center; /* Center text */
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 25px;
+  text-align: center;
   margin-bottom: 34px;
 }
+
 
 .input-container {
   display: flex;
@@ -207,36 +208,33 @@ main h1 {
 .continue-button:hover {
   background-color: #5848a5;
 }
-
-/* Question Component Styles */
-
 .body-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  background-color: #FFFFFF; /* Set a background color if needed */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #FFFFFF;
 }
 
 .main-question-container {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
-  align-items: center; /* Center horizontally */
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 800px; /* Set a max-width for the container */
-  padding: 20px; /* Add padding if needed */
+  max-width: 800px;
+  padding: 20px;
   background-color: #FFFFFF;
-  
 }
+
 
 .question-header {
   display: flex;
-  justify-content: start; /* Space out the content */
-  width: 100%; /* Ensure it takes the full width of the container */
-  padding: 0 20px; /* Add padding if needed */
+  justify-content: start;
+  width: 100%;
+  padding: 0 20px;
 }
 
 .options {
@@ -362,8 +360,8 @@ main h1 {
   display: flex;
   margin-top: 16px;
   align-items: center;
-  justify-content: flex-end; /* Align content to the end */
-  width: 100%; /* Ensure it takes the full width of the container */
+  justify-content: flex-end;
+  width: 100%; 
 }
 
 .submit-button {
@@ -381,33 +379,33 @@ main h1 {
 }
 
 .new-button {
-  width: 306; /* Allow the width to adjust based on content */
+  width: 306px;
   height: 57.58px;
   font-family: 'sora', sans-serif;
-  padding: 17px 20px; /* Adjust padding to fit content */
+  padding: 17px 20px;
   background: linear-gradient(90deg, #8f64e1, #1d68bd);
   color: white;
   font-size: 18px;
   font-weight: 600;
   border: none;
-  border-radius: 34px; /* Add border radius if needed */
-  cursor: pointer; /* Change cursor to pointer on hover */
-  white-space: nowrap; /* Prevent text from wrapping */
+  border-radius: 34px;
+  cursor: pointer;
+  white-space: nowrap;
 }
 
 .poll-history {
   display: flex;
   margin-top: 30px;
   margin-right: 80px;
-  justify-content: flex-end; /* Align content to the end */
-  width: 100%; /* Ensure it takes the full width of the container */
+  justify-content: flex-end;
+  width: 100%;
 }
 
 .poll-button {
-  width: 267px; /* Allow the width to adjust based on content */
+  width: 267px;
   height: 53px;
   font-family: 'sora', sans-serif;
-  padding: 17px 20px; /* Adjust padding to fit content */
+  padding: 17px 20px;
   background: linear-gradient(90deg, #8f64e1, #1d68bd);
   color: white;
   font-size: 18px;
@@ -418,23 +416,24 @@ main h1 {
   justify-content: center;
   gap: 8px;
   border: none;
-  border-radius: 34px; /* Add border radius if needed */
-  cursor: pointer; /* Change cursor to pointer on hover */
+  border-radius: 34px;
+  cursor: pointer;
 }
 
 .poll-button:focus {
-  outline: none; /* Remove default focus outline */
+  outline: none;
 }
 
 .eye-icon {
-  width: 30px; /* Adjust width as needed */
-  height: 30px; /* Adjust height as needed */
+  width: 30px;
+  height: 30px;
 }
+
 
 
 .submit-button:focus,
 .new-button:focus {
-  outline: none; /* Remove default focus outline */
+  outline: none;
 }
 
 
@@ -455,22 +454,23 @@ main h1 {
 
 .poll-history-container {
   display: flex;
-  flex-direction: column; /* Display children in a column */
-  gap: 20px; /* Add space between questions */
-  height: 100vh; /* Take the full height of the viewport */
-  width: 100%; /* Take the full width of the viewport */
-  overflow-y: auto; /* Make the container scrollable */
+  flex-direction: column;
+  gap: 20px;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
   overflow-x: hidden;
-  padding: 20px; /* Add padding if needed */
-  background-color: #FFFFFF; /* Set a background color if needed */
-  margin: 0; /* Remove default margin */
+  padding: 20px;
+  background-color: #FFFFFF;
+  margin: 0;
 }
 
 .poll-history-container > * {
-  margin: 0; /* Remove margin from children */
-  border: none; /* Remove border from children */
-  box-shadow: none; /* Remove box-shadow from children */
+  margin: 0;
+  border: none;
+  box-shadow: none;
 }
+
 
 .poll-history-header {
   margin-top: 20px;
@@ -501,11 +501,10 @@ main h1 {
   }
 
   .poll-history-container {
-    padding: 10px; /* Adjust padding if needed */
+    padding: 10px; 
   }
 }
 
-/* Responsive styling for smaller devices */
 @media (max-width: 768px) {
   .question-wrapper {
     margin-top: 100px;
@@ -597,18 +596,19 @@ main h1 {
 }
 
 .chatbot-container {
-  position: fixed; /* Fixed position relative to the viewport */
-  bottom: 80px; /* Distance from the bottom of the viewport */
-  right: 20px; /* Distance from the right of the viewport */
-  width: 429px; /* Set a fixed width for the chatbot */
-  height: 477px; /* Set a fixed height for the chatbot */
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 429px;
+  height: 477px;
   border: 1px;
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  background-color: #fff; /* Background color */
-  z-index: 1000; /* Ensure it appears above other elements */
-  overflow: hidden; /* Hide overflow content */
+  border-radius: 5px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  z-index: 1000;
+  overflow: hidden;
 }
+
 
 .chat-component {
   display: flex;
@@ -619,24 +619,24 @@ main h1 {
 .chat-tabs {
   display: flex;
   justify-content: start;
-  gap: 10px; /* Add gap between tabs */
-  background: none; /* Remove background */
-  border: none; /* Remove border */
+  gap: 10px;
+  background: none;
+  border: none;
   padding: 10px;
 }
-
 
 .tab {
   padding: 10px 20px;
   cursor: pointer;
-  border: none; /* Remove border */
-  background: none; /* Remove background */
-  outline: none; 
+  border: none;
+  background: none;
+  outline: none;
 }
 
 .tab:focus {
-  outline: none; /* Remove default focus outline */
+  outline: none;
 }
+
 
 .tab.active {
   font-weight: bold;
@@ -724,13 +724,13 @@ main h1 {
 }
 
 .header {
-  width: 759px; /* Fixed width */
-  height: 121px; /* Fixed height */
-  display: flex; /* Use flexbox for layout */
+  width: 759px;
+  height: 121px;
+  display: flex;
   flex-direction: column;
-  gap: 2px; /* Space between child elements */
-  margin-bottom: 2rem; /* Existing margin-bottom */
-  max-width: 737px; /* Existing max-width */
+  gap: 2px;
+  margin-bottom: 2rem;
+  max-width: 737px;
 }
 
 .title {
@@ -799,20 +799,21 @@ main h1 {
 }
 
 .counter {
-  position: absolute; /* Position the counter absolutely */
-  bottom: 10px; /* Distance from the bottom of the input container */
-  right: 10px; /* Distance from the right of the input container */
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
   color: rgb(107, 114, 128);
 }
 
 .timerDropdown {
   padding: 0.25rem;
-  border: none; /* Remove the border */
-  background-color: rgb(243, 244, 246); /* Match the background color */
+  border: none;
+  background-color: rgb(243, 244, 246);
   color: #333;
-  outline: none; /* Remove the outline */
-  appearance: none; /* Remove default dropdown arrow */
+  outline: none;
+  appearance: none;
 }
+
 
 .grid {
   display: flex;
@@ -830,12 +831,12 @@ main h1 {
 
 @media (max-width: 768px) {
   .container-teacher {
-    padding-left: 20px; /* Reduce padding for smaller screens */
+    padding-left: 20px; 
     padding-top: 20px;
   }
 
   .header {
-    width: auto; /* Make width auto for better responsiveness */
+    width: auto; 
     height: auto;
     margin-bottom: 1rem;
   }
@@ -851,24 +852,24 @@ main h1 {
 
   .questionSection {
     margin-bottom: 1rem;
-    padding: 0 10px; /* Add padding for better alignment on smaller screens */
+    padding: 0 10px; 
   }
 
   .inputContainer {
-    height: auto; /* Allow height to adjust dynamically */
+    height: auto; 
     padding: 0.75rem;
   }
 
   .input {
-    font-size: 14px; /* Adjust font size to make the question input smaller */
+    font-size: 14px; 
   }
 
   .counter {
-    font-size: 12px; /* Reduce counter font size */
+    font-size: 12px; 
   }
 
   .timerDropdown {
-    font-size: 14px; /* Adjust dropdown font size */
+    font-size: 14px; 
   }
 }
 
@@ -934,8 +935,8 @@ main h1 {
 
 .radioGroup {
   display: flex;
-  flex-direction: column; /* Align radio buttons vertically */
-  gap: 1rem; /* Space between radio buttons */
+  flex-direction: column;
+  gap: 1rem; 
 }
 
 .radioOption {
@@ -954,8 +955,8 @@ main h1 {
 .submitButton {
   background-color: rgb(139, 92, 246);
   color: white;
-  padding: 17px 70px; /* Adjust padding */
-  border-radius: 34px; /* Adjust border-radius */
+  padding: 17px 70px; 
+  border-radius: 34px; 
   border: none;
   cursor: pointer;
 }
@@ -994,8 +995,8 @@ input[type="radio"] {
   justify-content: center;
   justify-self: center;
   align-items: center;
-  max-width: 737px; /* Set a max-width for the message box */
-  height: 103px; /* Full width */
+  max-width: 737px; 
+  height: 103px;
 }
 
 .poll-badge {
@@ -1069,27 +1070,28 @@ input[type="radio"] {
   margin-left: 10px;
   color: #1D68BD;
   cursor: pointer;
-  text-decoration: underline; /* Add underline to the text */
-  background: none; /* Remove background */
-  border: none; /* Remove border */
-  padding: 0; /* Remove padding */
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .kick-out-button:hover {
-  color: #ff1a1a; /* Change text color on hover */
-  background-color: transparent; /* Ensure no background color on hover */
+  color: #ff1a1a;
+  background-color: transparent;
 }
 
-/* Responsive Design */
+
+
 @media (max-width: 768px) {
   .role-cards {
-    flex-direction: column; /* Stack cards vertically */
-    align-items: center; /* Center the cards horizontally */
+    flex-direction: column; 
+    align-items: center;
     gap: 20px;
   }
 
   .subtitle {
-    font-size: 16px; /* Smaller font size for better readability */
+    font-size: 16px; 
   }
 
   .container {
@@ -1101,46 +1103,47 @@ input[type="radio"] {
   }
 
   .role-card {
-    width: 100%; /* Full width of the container */
-    max-width: 300px; /* Set a maximum width for better control */
-    height: auto; /* Adjust height to content */
+    width: 100%;
+    max-width: 300px;
+    height: auto;
   }
-
+  
   .continue-button {
     width: 100%;
-    max-width: 300px; /* Adjust button width for smaller screens */
+    max-width: 300px;
   }
-
+  
   main h1 {
-    font-size: 28px; /* Slightly smaller heading for better fit */
+    font-size: 28px;
   }
-
+  
   .register-main h1 {
-    font-size: 32px; 
+    font-size: 32px;
   }
-
+  
   .register-main p {
-    font-size: 16px; 
+    font-size: 16px;
     line-height: 1.5;
   }
-
+  
   .input-container {
-    width: 100%; /* Full width for smaller screens */
-    max-width: 400px; /* Limit width for better readability */
+    width: 100%;
+    max-width: 400px;
   }
-
+  
   .input-container input {
-    width: 100%; /* Full width for smaller screens */
+    width: 100%;
   }
-
+  
   .input-container label {
-    font-size: 14px; /* Smaller text for readability */
+    font-size: 14px;
   }
-
+  
   main p {
-    font-size: 14px; /* Smaller text for readability */
+    font-size: 14px;
     line-height: 1.5;
   }
+  
 
   .question-wrapper {
     width: 100%;
@@ -1249,7 +1252,7 @@ input[type="radio"] {
   }
 
   .role-cards {
-    gap: 15px; /* Reduce gap for smaller screens */
+    gap: 15px; 
   }
 
   .role-card {
