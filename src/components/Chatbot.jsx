@@ -72,9 +72,13 @@ function ChatComponent() {
                 </div>
               ) : (
                 <div className="participants">
+                  <div className="participant-labels">
+                    <span className="participant-name-label">Name</span>
+                    <span className="participant-action-label">Action</span>
+                  </div>
                   <ul>
                     {participants.map((participant, index) => (
-                      <li key={index}>
+                      <li key={index} className="participant-item">
                         {participant}
                         <button
                           className="kick-out-button"

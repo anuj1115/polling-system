@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Clock } from 'lucide-react'; 
 import { useNavigate } from 'react-router-dom';
 import '../index.css';
+import star from '../assets/Vector.png';
 import Question from './Question';
 
 const Teacher = () => {
@@ -14,6 +15,8 @@ const Teacher = () => {
   const navigate = useNavigate();
   const [timeLeft, setTimeLeft] = useState(60); // Default timer starts at 60 seconds
   const [selectedTime, setSelectedTime] = useState(60);
+
+
 
   useEffect(() => {
     if (timeLeft > 0) {
@@ -47,13 +50,14 @@ const Teacher = () => {
   };
 
   const handleSubmit = () => {
-    navigate('/teacher/question', { state: { question, options, timeLimit: selectedTime } }); // Navigate to the new URL with state
+    navigate('/teacher/question', { state: { question, options, timeLimit: selectedTime , isNewQuestion: true } }); // Navigate to the new URL with state
   };
 
   return (
     <div className="container-teacher">
       <div className="pollBadge">
         <div className="badge">
+          <img src={star} alt="star" className="icon" />
           Intervue Poll
         </div>
       </div>

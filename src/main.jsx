@@ -7,6 +7,7 @@ import Question from './components/Question';
 import Teacher from './components/Teacher';
 import Leave from './components/Leave';
 import Layout from './components/Layout';
+import PollHistory from './components/Pollhistory';
 
 
 const container = document.getElementById('root');
@@ -18,10 +19,11 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/student" element={<Register />} />
-        <Route path="/question/:id" element={<Question />} />
+        <Route path="/question" element={<Question />} />
         <Route path="/teacher" element={<Teacher />} />
         <Route path="/polling/end" element={<Leave/>} />
         <Route path="/teacher/question" element={<Question />} />
+        <Route path="/teacher/pollhistory" element={<PollHistory />} />
       </Routes>
     </Layout>
   </Router>

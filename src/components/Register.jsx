@@ -1,39 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import star from '../assets/Vector.png';
-import Question from './Question';
 import { useNavigate } from 'react-router-dom';
 import questions from '../data/Questions';
 import ChatBox from '../components/Chatbot';
 
 function Register() {
   const [showLoader, setShowLoader] = useState(false);
-  const [showContent, setShowContent] = useState(false);
-  const [questionsState, setQuestionsState] = useState([]);
   const [userName, setUserName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    setQuestionsState(questions);
+    // Preloading questions if needed
   }, []);
 
   const handleLoader = () => {
-    setShowLoader(true);
-    setTimeout(() => {
-      setShowLoader(false);
-      setShowContent(true);
-    }, 2000); // Set loader for 2 seconds
-  };
-
-  const handleContinue = () => {
     if (userName.trim() === '') {
       alert('Please enter your name to continue.');
       return;
     }
 
-    if (questionsState.length > 0) {
-      const randomQuestion = questionsState[Math.floor(Math.random() * questionsState.length)];
-      navigate(`/question/${randomQuestion.id}`, { state: { userName } });
-    }
+    setShowLoader(true);
+
+    setTimeout(() => {
+      setShowLoader(false);
+
+      navigate(`/question`, { state: { userName } });
+      
+    }, 2000); // Loader timeout
   };
 
   return (
@@ -50,10 +43,6 @@ function Register() {
             </div>
             <p className="instruction">Wait for the teacher to ask questions...</p>
           </div>
-        </div>
-      ) : showContent ? (
-        <div className="content-container">
-          <Question />
         </div>
       ) : (
         <div className="register-main">
@@ -89,7 +78,6 @@ function Register() {
           </main>
         </div>
       )}
-      <ChatBox userName={userName} />
     </div>
   );
 }
