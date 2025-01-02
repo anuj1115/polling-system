@@ -1,122 +1,133 @@
 import React, { useState } from 'react';
+import { Clock } from 'lucide-react';
 import '../index.css';
 
-const PollComponent = () => {
+const TeacherPollComponent = () => {
   const [question, setQuestion] = useState('');
   const [options, setOptions] = useState([
     { id: 1, text: '', isCorrect: true },
     { id: 2, text: '', isCorrect: false }
   ]);
-  const [timeLimit, setTimeLimit] = useState(60);
+  const [timeLimit, setTimeLimit] = useState('60');
 
   const handleAddOption = () => {
-    const newOption = {
-      id: options.length + 1,
-      text: '',
-      isCorrect: false
-    };
-    setOptions([...options, newOption]);
+    if (options.length < 6) {
+      setOptions([...options, {
+        id: options.length + 1,
+        text: '',
+        isCorrect: false
+      }]);
+    }
   };
 
-  const handleOptionChange = (id, value) => {
+  const handleOptionChange = (id, text) => {
     setOptions(options.map(option => 
-      option.id === id ? { ...option, text: value } : option
+      option.id === id ? { ...option, text } : option
     ));
   };
 
-  const handleCorrectChange = (id) => {
+  const handleCorrectChange = (id, isCorrect) => {
     setOptions(options.map(option => 
-      ({ ...option, isCorrect: option.id === id })
+      ({ ...option, isCorrect: option.id === id && isCorrect })
     ));
   };
 
   return (
-    <div className="poll-container">
-      <div className="poll-header">
-        <div className="poll-tag">
+    <div className="container-teacher">
+      <div className="pollBadge">
+        <div className="badge">
           Intervue Poll
         </div>
       </div>
 
-      <h1 className="poll-title">Let's Get Started</h1>
-      <p className="poll-description">
-        you'll have the ability to create and manage polls, ask questions, and monitor
-        your students' responses in real-time.
-      </p>
+      <div className="header">
+        <h1 className="title">Let's <span>Get Started</span></h1>
+        <p className="subtitle">
+          You'll have the ability to create and manage polls, ask questions, and monitor
+          your students' responses in real-time.
+        </p>
+      </div>
 
-      <div className="question-container">
-        <label className="question-label">
-          Enter your question
-        </label>
-        <div className="textarea-wrapper">
+      <div className="questionSection">
+        <div className="questionHeader">
+          <span className="label">Enter your question</span>
+          <div className="timer">
+            <Clock size={16} className="arrow" />
+            <select 
+              className="timerDropdown"
+              value={timeLimit}
+              onChange={(e) => setTimeLimit(e.target.value)}
+            >
+              <option value="30">30 seconds</option>
+              <option value="60">60 seconds</option>
+              <option value="90">90 seconds</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="inputContainer">
           <textarea
+            className="input"
+            placeholder="Type your question here..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
-            className="question-input"
-            placeholder="Type your question here..."
+            maxLength={100}
           />
-          <div className="character-count">
-            {question.length}/100
-          </div>
+          <div className="counter">{question.length}/100</div>
         </div>
       </div>
 
-      <div className="options-header">
-        <div className="options-title">Edit Options</div>
-        <button className="time-selector">
-          {timeLimit} seconds 
-        </button>
-      </div>
-
-      <div className="options-list">
-        {options.map((option) => (
-          <div key={option.id} className="option-item">
-            <div className="option-number">
-              {option.id}
+      <div className="grid">
+        <div className='section'>
+          <h3 className="sectionTitle">Edit Options</h3>
+          <h3 className="sectionTitle">Is it Correct ?</h3>
+        </div>
+        <div className="optionsSection">
+          {options.map((option) => (
+            <div key={option.id} className="optionItem">
+              <div className="optionNumber">{option.id}</div>
+              <input
+                type="text"
+                className="optionInput"
+                placeholder="Type your option"
+                value={option.text}
+                onChange={(e) => handleOptionChange(option.id, e.target.value)}
+              />
+              <div className="correctAnswerGroup">
+                <label className="radioOption">
+                  <input
+                    type="radio"
+                    name={`correct-${option.id}`}
+                    checked={option.isCorrect}
+                    onChange={() => handleCorrectChange(option.id, true)}
+                  />
+                  Yes
+                </label>
+                <label className="radioOption">
+                  <input
+                    type="radio"
+                    name={`correct-${option.id}`}
+                    checked={!option.isCorrect}
+                    onChange={() => handleCorrectChange(option.id, false)}
+                  />
+                  No
+                </label>
+              </div>
             </div>
-            <input
-              type="text"
-              value={option.text}
-              onChange={(e) => handleOptionChange(option.id, e.target.value)}
-              className="option-input"
-              placeholder="Enter option text"
-            />
-            <div className="radio-group">
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  checked={option.isCorrect}
-                  onChange={() => handleCorrectChange(option.id)}
-                  className="radio-input"
-                />
-                Yes
-              </label>
-              <label className="radio-label">
-                <input
-                  type="radio"
-                  checked={!option.isCorrect}
-                  onChange={() => handleCorrectChange(option.id)}
-                  className="radio-input"
-                />
-                No
-              </label>
-            </div>
-          </div>
-        ))}
+          ))}
+          <button onClick={handleAddOption} className="addButton">
+            + Add More option
+          </button>
+        </div>
+
+        <div className="footer">
+          <button className="submitButton">
+            Ask Question
+          </button>
+        </div>
       </div>
-
-      <button
-        onClick={handleAddOption}
-        className="add-option-button"
-      >
-        + Add More option
-      </button>
-
-      <button className="submit-button">
-        Ask Question
-      </button>
     </div>
   );
 };
 
-export default PollComponent;
+export default TeacherPollComponent;
