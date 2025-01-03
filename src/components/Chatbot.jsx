@@ -25,6 +25,12 @@ function ChatComponent() {
     setIsChatVisible(!isChatVisible);
   };
 
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
   const handleKickOut = (participant) => {
     setParticipants(participants.filter(p => p !== participant));
     navigate('/polling/end')

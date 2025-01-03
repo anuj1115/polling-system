@@ -982,6 +982,122 @@ main h1 {
   margin-bottom: 1.5r;
 }
 
+@media (max-width: 468px) {
+  .container-teacher {
+    padding-left: 10px; 
+    padding-top: 10px;
+  }
+
+  .header {
+    width: auto; 
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+
+  .inputContainer {
+    height: auto; 
+    padding: 0.5rem;
+  }
+
+  .input {
+    font-size: 12px; 
+    padding: 0.5rem;
+  }
+
+  .counter {
+    font-size: 10px; 
+  }
+
+  .timerDropdown {
+    font-size: 12px; 
+  }
+
+  .section {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; 
+    max-width: 100%; 
+    padding: 0 5px; 
+  }
+
+  .optionsSection {
+    display: flex;
+    flex-direction: column; 
+    max-width: 80%; 
+    padding: 5px; 
+    margin: 0 auto;
+  }
+
+  .sectionTitle {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .optionItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.25rem; 
+    font-size: 0.875rem; 
+    line-height: 1.25rem; 
+  }
+
+  .optionNumber {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 0.75rem;
+
+  }
+
+  .optionInput {
+    padding: 0.5rem;
+    height: 50px;
+    max-width: 100%;
+  }
+
+  .addButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 12px;
+    margin-top: 0.4rem;
+  }
+
+  .radioOption {
+    gap: 0.25rem;
+  }
+
+  .footer {
+    margin-right: 10px;
+  }
+
+  .submitButton {
+    padding: 12px 50px;
+    font-size: 14px;
+  }
+
+  .correctAnswerGroup {
+    gap: 2px;
+    margin-bottom: 0.5rem; 
+    font-size: 0.875rem; 
+    padding: 0.25rem; 
+  }
+}
+
+
 
 input[type="radio"] {
   accent-color: rgb(139, 92, 246);
