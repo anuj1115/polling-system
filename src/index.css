@@ -1255,7 +1255,7 @@ input[type="radio"] {
   .role-card {
     width: 100%;
     max-width: 300px;
-    height: auto;
+    height: 143px;
   }
   
   .continue-button {
